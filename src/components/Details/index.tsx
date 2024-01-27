@@ -8,9 +8,16 @@ import placeholder from "../../assets/placeholder.png";
 // presento anteriormente, este typo creado utilízalo para definir el type de los parámetros de entrada
 // de este componente.
 
-type Product = {};
+type Product = {
+  title: string;
+  price: number;
+  category: string;
+  description: string;
+  image: string;
+  stock: number;
+};
 
-const Details = ({ title, price, category, description, image }) => {
+const Details = ({ title, price, category, description, image }: Product) => {
   // por ultimo agrega los valores del producto en el componente `Details`
   return (
     <section>
@@ -19,15 +26,15 @@ const Details = ({ title, price, category, description, image }) => {
           <div className="col-2">
             <img src={placeholder} alt="" width="100%" id="image" />
           </div>
-          <div className="">
+          <div className="col-2">
             <p>
               Home /
               <span id="category">
-                acá debes colocar la categoría del producto
+                {category}
               </span>
             </p>
-            <h1 id="title"> acá debes colocar el titulo del producto </h1>
-            <h4 id="price"> acá debes colocar el precio del producto </h4>
+            <h1 id="title"> {title} </h1>
+            <h4 id="price"> {price} </h4>
 
             <input type="number" id="quantity" />
             <button className="" id="btn">
@@ -36,7 +43,7 @@ const Details = ({ title, price, category, description, image }) => {
 
             <h3>Product Details</h3>
             <br />
-            <p id="description">acá debes colocar los detalles del producto</p>
+            <p id="description">{description}</p>
           </div>
         </div>
       </div>
